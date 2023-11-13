@@ -1,12 +1,13 @@
 <%@page contentType="text/html;charset=utf-8" %>
 <%@page import="bean.*" %>
 <jsp:useBean id ="sdto" scope="request" class="bean.StudentDTO" />
+<jsp:useBean id ="msg" scope="request" class="java.lang.String" />
 <html>
   <head>
     <title>表示画面</title>
   </head>
 <body>
-<h2>生徒全員の情報は次の通りです</h2>
+<h2><%= msg %></h2>
 <table border="0">
   <tr>
     <th width="50">番号</th>
@@ -23,6 +24,7 @@
     <td align="center"><%= sb.getScore() %></td>
   </tr>
 <% } %>
-</table>
+</table><br />
+<a href="/dbweb/editstudent.html">戻る</a>
 </body>
 </html>
