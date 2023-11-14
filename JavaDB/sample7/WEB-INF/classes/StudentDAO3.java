@@ -9,7 +9,6 @@ public class StudentDAO3 {
 
   public void connect(){
     try{
-      //①DBに接続
       con = DriverManager.getConnection(URL, USER, PASS);
     } catch(Exception e){
       e.printStackTrace();
@@ -23,11 +22,8 @@ public class StudentDAO3 {
     String sql = "SELECT * FROM student";
     try{
       connect();
-      //②ステートメントを生成
       stmt = con.createStatement();
-      //③SQLを実行
       rs = stmt.executeQuery(sql);
-      //④検索結果の処理
       while(rs.next()){
         StudentBean sb = new StudentBean();
         sb.setNo(rs.getInt("no"));
@@ -72,9 +68,7 @@ public class StudentDAO3 {
     int result = 0;
     try{
       connect();
-      //②ステートメントを生成
       stmt = con.createStatement();
-      //③SQLを実行
       result = stmt.executeUpdate(sql);
     } catch(Exception e){
       e.printStackTrace();
@@ -92,7 +86,6 @@ public class StudentDAO3 {
 
   public void disconnect(){
     try{
-      //⑤DBを切断
       if(con != null) con.close();
     } catch(Exception e){
       e.printStackTrace();

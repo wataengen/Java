@@ -8,36 +8,30 @@ import bean.StudentDTO;
 public class EditStudentServlet extends HttpServlet {
   public void doPost(HttpServletRequest req, HttpServletResponse res)
       throws IOException, ServletException {
-    String msg = "¶“k‘Sˆõ‚Ìî•ñ‚ğ•\¦‚µ‚Ü‚·";
-    //“ü—Í’libtnj‚ğæ“¾
+    String msg = "ç”Ÿå¾’å…¨å“¡ã®æƒ…å ±ã‚’è¡¨ç¤ºã—ã¾ã™";
     req.setCharacterEncoding("utf-8");
     String btn = req.getParameter("btn");
-    //StudentDAOƒIƒuƒWƒFƒNƒg‚ğ¶¬
     StudentDAO3 sdao = new StudentDAO3();
-    //‰Ÿ‰ºƒ{ƒ^ƒ“‚É‚æ‚é•ªŠòˆ—
-    if(btn.equals("’Ç‰Á")){
+    if(btn.equals("è¿½åŠ ")){
       int no = Integer.parseInt(req.getParameter("no"));
       String name = req.getParameter("name");
       int score = Integer.parseInt(req.getParameter("score"));
       sdao.insert(no, name, score);
-      msg = "”Ô†" + no + "‚Ì¶“k‚ğ’Ç‰Á‚µ‚Ü‚µ‚½";
-    } else if(btn.equals("C³")) {
+      msg = "ç•ªå·" + no + "ã®ç”Ÿå¾’ã‚’è¿½åŠ ã—ã¾ã—ãŸ";
+    } else if(btn.equals("ä¿®æ­£")) {
       int no = Integer.parseInt(req.getParameter("no"));
       String name = req.getParameter("name");
       int score = Integer.parseInt(req.getParameter("score"));
       sdao.update(no, name, score);
-      msg = "”Ô†" + no + "‚Ì¶“k‚ğC³‚µ‚Ü‚µ‚½";
-    } else if(btn.equals("íœ")) {
+      msg = "ç•ªå·" + no + "ã®ç”Ÿå¾’ã‚’ä¿®æ­£ã—ã¾ã—ãŸ";
+    } else if(btn.equals("å‰Šé™¤")) {
       int no = Integer.parseInt(req.getParameter("no"));
       sdao.delete(no);
-      msg = "”Ô†" + no + "‚Ì¶“k‚ğíœ‚µ‚Ü‚µ‚½";
+      msg = "ç•ªå·" + no + "ã®ç”Ÿå¾’ã‚’å‰Šé™¤ã—ã¾ã—ãŸ";
     }
-    //‘SŒŒŸõ
     StudentDTO sdto = sdao.select();
-    //ƒŠƒNƒGƒXƒgƒXƒR[ƒv‚ÉDTO‚Æmsg‚ğŠi”[
     req.setAttribute("sdto", sdto);
     req.setAttribute("msg", msg);
-    //JSP‚ÉƒtƒHƒ[ƒh
     RequestDispatcher rd = req.getRequestDispatcher("/editstudent.jsp");
     rd.forward(req, res);
   }
