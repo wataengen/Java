@@ -8,7 +8,7 @@ public class TWRTime {
     public static void main(String[] args) {
         try(FileReader fr = new FileReader("original.txt");
         BufferedReader br = new BufferedReader(fr);
-        FileWriter fw = new FileWriter("copy1.txt");
+        FileWriter fw = new FileWriter("copy3.txt");
         BufferedWriter bw = new BufferedWriter(fw);
         ) {
             
