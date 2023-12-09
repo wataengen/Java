@@ -20,7 +20,7 @@ public class GoodBank {
         }
         System.out.println(category + "前の残高：" + b );
         b = b + money;
-        System.out.println(category + "後の残高" + b );
+        System.out.println(category + "後の残高：" + b );
         balance = b;
         notify();    
     }
